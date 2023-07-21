@@ -1,13 +1,8 @@
 "use client"; 
 
-import type { NextComponentType } from "next";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
 
-const Form: NextComponentType = () => {
-    const router = useRouter();
-
+export default function Form () {
     const [name, setName] = useState("");
     const [age, setAge] = useState("");
 
@@ -32,11 +27,12 @@ const Form: NextComponentType = () => {
 
         // print to screen
         console.log("content ==> ", content)
-        router.refresh();
-
+        
+        
         // Reset the form fields
         setName("");
         setAge("");
+
 
     };
 
@@ -51,8 +47,6 @@ const Form: NextComponentType = () => {
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         type="text"
-                        name="nama"
-                        id="nama"
                         placeholder="Write here"
                     />
                 </div>
@@ -64,8 +58,6 @@ const Form: NextComponentType = () => {
                         value={age}
                         onChange={(e) => setAge(e.target.value)}
                         type="text"
-                        name="nama"
-                        id="nama"
                         placeholder="Write here"
                     />
                 </div>
@@ -82,5 +74,3 @@ const Form: NextComponentType = () => {
         </>
     );
 };
-
-export default Form;
